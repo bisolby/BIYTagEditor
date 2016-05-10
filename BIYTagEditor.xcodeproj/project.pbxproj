@@ -13,6 +13,7 @@
 		C4866F461CD6FC4D0082A839 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4866F441CD6FC4D0082A839 /* Main.storyboard */; };
 		C4866F481CD6FC4D0082A839 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4866F471CD6FC4D0082A839 /* Assets.xcassets */; };
 		C4866F4B1CD6FC4D0082A839 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4866F491CD6FC4D0082A839 /* LaunchScreen.storyboard */; };
+		C491BAE91CE059C400371030 /* BIYTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C491BAE81CE059C400371030 /* BIYTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		C4866F471CD6FC4D0082A839 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4866F4A1CD6FC4D0082A839 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4866F4C1CD6FC4D0082A839 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C491BAE71CE059C400371030 /* BIYTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIYTextField.h; sourceTree = "<group>"; };
+		C491BAE81CE059C400371030 /* BIYTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIYTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		C4866F3A1CD6FC4D0082A839 /* BIYTagEditor */ = {
 			isa = PBXGroup;
 			children = (
+				C491BAE61CE0599A00371030 /* BIYTagEditor */,
 				C4866F3E1CD6FC4D0082A839 /* AppDelegate.h */,
 				C4866F3F1CD6FC4D0082A839 /* AppDelegate.m */,
 				C4866F411CD6FC4D0082A839 /* ViewController.h */,
@@ -77,6 +81,15 @@
 				C4866F3C1CD6FC4D0082A839 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C491BAE61CE0599A00371030 /* BIYTagEditor */ = {
+			isa = PBXGroup;
+			children = (
+				C491BAE71CE059C400371030 /* BIYTextField.h */,
+				C491BAE81CE059C400371030 /* BIYTextField.m */,
+			);
+			name = BIYTagEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +164,7 @@
 			files = (
 				C4866F431CD6FC4D0082A839 /* ViewController.m in Sources */,
 				C4866F401CD6FC4D0082A839 /* AppDelegate.m in Sources */,
+				C491BAE91CE059C400371030 /* BIYTextField.m in Sources */,
 				C4866F3D1CD6FC4D0082A839 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +278,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BIYTagEditor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bisolby.BIYTagEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -275,6 +290,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BIYTagEditor/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bisolby.BIYTagEditor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,6 +316,7 @@
 				C4866F511CD6FC4D0082A839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

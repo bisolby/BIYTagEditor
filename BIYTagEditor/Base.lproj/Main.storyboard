@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpX-aF-FVp" userLabel="Search View">
+                                <rect key="frame" x="0.0" y="80" width="600" height="44"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="# You can enter 3 tags..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Hr-5H-HcT" userLabel="Search TextField" customClass="BIYTextField">
+                                        <rect key="frame" x="8" y="0.0" width="544" height="44"/>
+                                        <color key="backgroundColor" red="0.1137254902" green="0.1176470588" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="248" constant="97" id="OuL-J7-RLC"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="788-Ww-gNg"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EVO-y0-ISq" userLabel="Add Button">
+                                        <rect key="frame" x="560" y="7" width="32" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" priority="249" id="lpv-VD-lyi"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="rBY-8u-btp"/>
+                                        </constraints>
+                                        <state key="normal" title="ADD">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="searchAddButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2gh-zv-Hvd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="EVO-y0-ISq" secondAttribute="trailing" constant="8" id="78G-yb-tfR"/>
+                                    <constraint firstItem="EVO-y0-ISq" firstAttribute="leading" secondItem="7Hr-5H-HcT" secondAttribute="trailing" constant="8" id="ITU-PZ-skW"/>
+                                    <constraint firstItem="7Hr-5H-HcT" firstAttribute="top" secondItem="UpX-aF-FVp" secondAttribute="top" id="dgO-CM-xff"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Hr-5H-HcT" secondAttribute="bottom" id="gDh-4W-Gme"/>
+                                    <constraint firstItem="EVO-y0-ISq" firstAttribute="centerY" secondItem="UpX-aF-FVp" secondAttribute="centerY" id="jz0-t7-2dk"/>
+                                    <constraint firstAttribute="height" constant="44" id="qoJ-TT-hae"/>
+                                    <constraint firstItem="7Hr-5H-HcT" firstAttribute="leading" secondItem="UpX-aF-FVp" secondAttribute="leading" constant="8" id="wm2-8N-zKL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.066666666666666666" green="0.070588235294117646" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="UpX-aF-FVp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="5Mj-kB-6DP"/>
+                            <constraint firstItem="UpX-aF-FVp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h99-hC-iiX"/>
+                            <constraint firstAttribute="trailing" secondItem="UpX-aF-FVp" secondAttribute="trailing" id="pUh-Ts-hKB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchAddButton" destination="EVO-y0-ISq" id="FNA-AJ-lwF"/>
+                        <outlet property="searchTextField" destination="7Hr-5H-HcT" id="qUU-cT-LqT"/>
+                        <outlet property="searchViewTrailingConstraint" destination="pUh-Ts-hKB" id="xjX-Rt-75w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="536" y="370"/>
         </scene>
     </scenes>
 </document>

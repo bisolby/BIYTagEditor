@@ -10,9 +10,14 @@
 
 #import "BIYTextField.h"
 
+#import "BIYTagCollectionViewCell.h"
+#import "BIYTagCollectionViewFlowLayout.h"
+
 #define PREFIX_TEXT @"# "
 
-@interface ViewController () <UITextFieldDelegate>
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate>
+
+@property (strong, nonatomic) NSArray *TAGS;
 
 @property (weak, nonatomic) IBOutlet BIYTextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UIButton *searchAddButton;
@@ -20,15 +25,29 @@
 @property (assign, nonatomic) CGFloat searchViewTrailingContraintConstant;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchViewTrailingConstraint;
 
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet BIYTagCollectionViewFlowLayout *collectionFlowLayout;
+@property (strong, nonatomic) BIYTagCollectionViewCell *tagCell;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    _TAGS = @[@"Tech", @"Design is my life", @"Humor", @"Travel", @"Music", @"Writing"];
+    
     _searchViewTrailingContraintConstant = CGRectGetWidth(_searchAddButton.bounds) + 8.f;
     _searchViewTrailingConstraint.constant = -_searchViewTrailingContraintConstant;
+    
+    _collectionView.backgroundColor = [UIColor clearColor];
+    _collectionFlowLayout.sectionInset = UIEdgeInsetsMake(0, 16, 0, 16);
+    
+    UINib *nib = [UINib nibWithNibName:@"BIYTagCollectionViewCell" bundle:nil];
+    [_collectionView registerNib:nib forCellWithReuseIdentifier:@"BIYTagCollectionViewCell"];
+    
+    _tagCell = [[NSBundle mainBundle] loadNibNamed:@"BIYTagCollectionViewCell" owner:self options:nil][0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,6 +118,31 @@
     }
     
     return YES;
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return _TAGS.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    BIYTagCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BIYTagCollectionViewCell" forIndexPath:indexPath];
+    cell.tagLabel.text = _TAGS[indexPath.row];
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    _tagCell.tagLabel.text = _TAGS[indexPath.row];
+    CGSize size = CGSizeMake([_tagCell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width, 40.f);
+    return size;
 }
 
 @end

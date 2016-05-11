@@ -20,7 +20,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UpX-aF-FVp" userLabel="Search View">
                                 <rect key="frame" x="0.0" y="80" width="600" height="44"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="# You can enter 3 tags..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Hr-5H-HcT" userLabel="Search TextField" customClass="BIYTextField">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="# You can enter 3 tags..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Hr-5H-HcT" userLabel="Search TextField" customClass="BIYTextField">
                                         <rect key="frame" x="8" y="0.0" width="544" height="44"/>
                                         <color key="backgroundColor" red="0.1137254902" green="0.1176470588" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -58,15 +58,45 @@
                                     <constraint firstItem="7Hr-5H-HcT" firstAttribute="leading" secondItem="UpX-aF-FVp" secondAttribute="leading" constant="8" id="wm2-8N-zKL"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="v7o-bv-FOB" userLabel="Tag View">
+                                <rect key="frame" x="0.0" y="124" width="600" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="rDm-Um-whv"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hSm-zQ-pIz" customClass="BIYTagCollectionViewFlowLayout">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="5dO-Bv-9xt"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ouj-JP-CJx"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LYQ-18-kmt">
+                                <rect key="frame" x="0.0" y="204" width="600" height="396"/>
+                                <color key="backgroundColor" red="0.72156862749999995" green="0.99607843139999996" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.066666666666666666" green="0.070588235294117646" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="UpX-aF-FVp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="80" id="5Mj-kB-6DP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LYQ-18-kmt" secondAttribute="bottom" id="8gU-jC-9sH"/>
+                            <constraint firstItem="v7o-bv-FOB" firstAttribute="top" secondItem="UpX-aF-FVp" secondAttribute="bottom" id="bnG-Rz-Rj9"/>
                             <constraint firstItem="UpX-aF-FVp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h99-hC-iiX"/>
+                            <constraint firstItem="LYQ-18-kmt" firstAttribute="top" secondItem="v7o-bv-FOB" secondAttribute="bottom" id="kV6-1C-4eP"/>
+                            <constraint firstAttribute="trailing" secondItem="v7o-bv-FOB" secondAttribute="trailing" id="ldA-3e-2Ql"/>
+                            <constraint firstAttribute="trailing" secondItem="LYQ-18-kmt" secondAttribute="trailing" id="nKE-S0-LIY"/>
+                            <constraint firstItem="LYQ-18-kmt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nlz-M6-okd"/>
+                            <constraint firstItem="v7o-bv-FOB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nsy-Pg-Iwq"/>
                             <constraint firstAttribute="trailing" secondItem="UpX-aF-FVp" secondAttribute="trailing" id="pUh-Ts-hKB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionFlowLayout" destination="hSm-zQ-pIz" id="anZ-Mm-p9G"/>
+                        <outlet property="collectionView" destination="v7o-bv-FOB" id="6ff-9I-5CK"/>
                         <outlet property="searchAddButton" destination="EVO-y0-ISq" id="FNA-AJ-lwF"/>
                         <outlet property="searchTextField" destination="7Hr-5H-HcT" id="qUU-cT-LqT"/>
                         <outlet property="searchViewTrailingConstraint" destination="pUh-Ts-hKB" id="xjX-Rt-75w"/>

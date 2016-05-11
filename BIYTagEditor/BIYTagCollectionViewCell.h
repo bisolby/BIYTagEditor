@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class BIYTagCollectionViewCell;
+@class BIYTagObject;
+
+@protocol BIYTagCollectionViewCellDelegate <NSObject>
+
+- (void)removeTag:(BIYTagCollectionViewCell *)cell;
+
+@end
+
 @interface BIYTagCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *tagLabel;
+@property (weak, nonatomic) id<BIYTagCollectionViewCellDelegate> delegate;
+@property (strong, nonatomic) BIYTagObject *broadcastTag;
 
 @end

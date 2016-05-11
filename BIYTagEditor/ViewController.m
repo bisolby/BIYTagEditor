@@ -10,14 +10,14 @@
 
 #import "BIYTextField.h"
 
+#import "BIYTagObject.h"
 #import "BIYTagCollectionViewCell.h"
-#import "BIYTagCollectionViewFlowLayout.h"
 
 #define PREFIX_TEXT @"# "
 
-@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate>
+@interface ViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate, BIYTagCollectionViewCellDelegate>
 
-@property (strong, nonatomic) NSArray *TAGS;
+@property (strong, nonatomic) NSMutableArray<BIYTagObject *> *TAGS;
 
 @property (weak, nonatomic) IBOutlet BIYTextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UIButton *searchAddButton;
@@ -26,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *searchViewTrailingConstraint;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet BIYTagCollectionViewFlowLayout *collectionFlowLayout;
 @property (strong, nonatomic) BIYTagCollectionViewCell *tagCell;
 
 @end
@@ -36,13 +35,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _TAGS = @[@"Tech", @"Design is my life", @"Humor", @"Travel", @"Music", @"Writing"];
+    _TAGS = [NSMutableArray new];
+    for (NSInteger i = 0 ; i < 30 ; i++){
+        [_TAGS addObject:[[BIYTagObject alloc] initWithKey:i andValue:[self generatedRandomWord]]];
+    }
     
     _searchViewTrailingContraintConstant = CGRectGetWidth(_searchAddButton.bounds) + 8.f;
     _searchViewTrailingConstraint.constant = -_searchViewTrailingContraintConstant;
     
     _collectionView.backgroundColor = [UIColor clearColor];
-    _collectionFlowLayout.sectionInset = UIEdgeInsetsMake(0, 16, 0, 16);
+    _collectionView.contentInset = UIEdgeInsetsMake(0, 16, 0, 16);
     
     UINib *nib = [UINib nibWithNibName:@"BIYTagCollectionViewCell" bundle:nil];
     [_collectionView registerNib:nib forCellWithReuseIdentifier:@"BIYTagCollectionViewCell"];
@@ -130,7 +132,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BIYTagCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"BIYTagCollectionViewCell" forIndexPath:indexPath];
-    cell.tagLabel.text = _TAGS[indexPath.row];
+    cell.delegate = self;
+    cell.broadcastTag = _TAGS[indexPath.row];
     return cell;
 }
 
@@ -140,9 +143,34 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    _tagCell.tagLabel.text = _TAGS[indexPath.row];
+    _tagCell.broadcastTag = _TAGS[indexPath.row];
     CGSize size = CGSizeMake([_tagCell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].width, 40.f);
     return size;
+}
+
+#pragma mark - BIYTagCollectionViewCellDelegate
+
+- (void)removeTag:(BIYTagCollectionViewCell *)cell
+{
+    [_TAGS removeObject:cell.broadcastTag];
+    
+    [self.collectionView reloadData];
+}
+
+#pragma mark - Generating Random Word
+
+- (NSString *)generatedRandomWord
+{
+    NSString *alphabet  = @"abcdefghijklmnopqrstuvwxyz";
+    NSUInteger wordLength = arc4random() % 10 + 5;
+    NSMutableString *s = [NSMutableString stringWithCapacity:wordLength];
+    for (NSUInteger i = 0U; i < wordLength; i++) {
+        u_int32_t r = arc4random() % [alphabet length];
+        unichar c = [alphabet characterAtIndex:r];
+        [s appendFormat:@"%C", c];
+    }
+    
+    return s;
 }
 
 @end

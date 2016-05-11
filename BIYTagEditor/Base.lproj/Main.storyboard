@@ -63,7 +63,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="rDm-Um-whv"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hSm-zQ-pIz" customClass="BIYTagCollectionViewFlowLayout">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hSm-zQ-pIz">
                                     <size key="itemSize" width="0.0" height="0.0"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -95,7 +95,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionFlowLayout" destination="hSm-zQ-pIz" id="anZ-Mm-p9G"/>
                         <outlet property="collectionView" destination="v7o-bv-FOB" id="6ff-9I-5CK"/>
                         <outlet property="searchAddButton" destination="EVO-y0-ISq" id="FNA-AJ-lwF"/>
                         <outlet property="searchTextField" destination="7Hr-5H-HcT" id="qUU-cT-LqT"/>

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C479D0A31CE2F11B00593FEF /* BIYTagCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C479D0A11CE2F11B00593FEF /* BIYTagCollectionViewCell.m */; };
 		C479D0A41CE2F11B00593FEF /* BIYTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C479D0A21CE2F11B00593FEF /* BIYTagCollectionViewCell.xib */; };
-		C479D0A71CE2F15600593FEF /* BIYTagCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C479D0A61CE2F15600593FEF /* BIYTagCollectionViewFlowLayout.m */; };
+		C479D0AD1CE327C600593FEF /* BIYTagObject.m in Sources */ = {isa = PBXBuildFile; fileRef = C479D0AC1CE327C600593FEF /* BIYTagObject.m */; };
 		C4866F3D1CD6FC4D0082A839 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C4866F3C1CD6FC4D0082A839 /* main.m */; };
 		C4866F401CD6FC4D0082A839 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C4866F3F1CD6FC4D0082A839 /* AppDelegate.m */; };
 		C4866F431CD6FC4D0082A839 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4866F421CD6FC4D0082A839 /* ViewController.m */; };
@@ -23,8 +23,8 @@
 		C479D0A01CE2F11B00593FEF /* BIYTagCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIYTagCollectionViewCell.h; sourceTree = "<group>"; };
 		C479D0A11CE2F11B00593FEF /* BIYTagCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIYTagCollectionViewCell.m; sourceTree = "<group>"; };
 		C479D0A21CE2F11B00593FEF /* BIYTagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BIYTagCollectionViewCell.xib; sourceTree = "<group>"; };
-		C479D0A51CE2F15600593FEF /* BIYTagCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIYTagCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		C479D0A61CE2F15600593FEF /* BIYTagCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIYTagCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		C479D0AB1CE327C600593FEF /* BIYTagObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BIYTagObject.h; sourceTree = "<group>"; };
+		C479D0AC1CE327C600593FEF /* BIYTagObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIYTagObject.m; sourceTree = "<group>"; };
 		C4866F381CD6FC4D0082A839 /* BIYTagEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BIYTagEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4866F3C1CD6FC4D0082A839 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C4866F3E1CD6FC4D0082A839 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,8 +99,8 @@
 				C479D0A01CE2F11B00593FEF /* BIYTagCollectionViewCell.h */,
 				C479D0A11CE2F11B00593FEF /* BIYTagCollectionViewCell.m */,
 				C479D0A21CE2F11B00593FEF /* BIYTagCollectionViewCell.xib */,
-				C479D0A51CE2F15600593FEF /* BIYTagCollectionViewFlowLayout.h */,
-				C479D0A61CE2F15600593FEF /* BIYTagCollectionViewFlowLayout.m */,
+				C479D0AB1CE327C600593FEF /* BIYTagObject.h */,
+				C479D0AC1CE327C600593FEF /* BIYTagObject.m */,
 			);
 			name = BIYTagEditor;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C479D0A71CE2F15600593FEF /* BIYTagCollectionViewFlowLayout.m in Sources */,
+				C479D0AD1CE327C600593FEF /* BIYTagObject.m in Sources */,
 				C4866F431CD6FC4D0082A839 /* ViewController.m in Sources */,
 				C479D0A31CE2F11B00593FEF /* BIYTagCollectionViewCell.m in Sources */,
 				C4866F401CD6FC4D0082A839 /* AppDelegate.m in Sources */,

@@ -36,7 +36,7 @@
     [super viewDidLoad];
     
     _TAGS = [NSMutableArray new];
-    for (NSInteger i = 0 ; i < 30 ; i++){
+    for (NSInteger i = 0 ; i < 3 ; i++){
         [_TAGS addObject:[[BIYTagObject alloc] initWithKey:i andValue:[self generatedRandomWord]]];
     }
     
@@ -116,6 +116,15 @@
     NSRange substringRange = [textField.text rangeOfString:PREFIX_TEXT];
     
     if (range.location >= substringRange.location && range.location < substringRange.location + substringRange.length) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    if ([textField.text isEqualToString:PREFIX_TEXT]) {
         return NO;
     }
     
